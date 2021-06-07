@@ -348,3 +348,17 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# Ignore files from dev
+
+Doctor.json
+Doctors.json
+
+Patient.json
+Patients.json
+
+Employee.json
+Employees.json
+
+MedicalAppoinment.json
+MedicalAppoinments.json
