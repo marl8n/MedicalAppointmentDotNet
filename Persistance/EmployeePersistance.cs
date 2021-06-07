@@ -24,7 +24,7 @@ namespace MedicalAppointmentDotNet.Persistance
             return new List<Employee>();
         }
 
-        public static void Save(List<Employee> employees, string FileName = "Patient.json")
+        public static void Save(List<Employee> employees, string FileName = "Employee.json")
         {
             using (var sw = new StreamWriter(FileName))
             {
