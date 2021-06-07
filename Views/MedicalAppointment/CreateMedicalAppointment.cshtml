@@ -1,0 +1,27 @@
+@model MedicalAppointment
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div asp-validation-summary="All"></div>
+<form method="POST">
+    <div>
+        <label asp-for="DoctorId"></label>    
+        <input  asp-for="DoctorId"/>
+    </div>
+    <div>
+        <label asp-for="PatientId"></label>
+        <input  asp-for="PatientId"/>
+    </div>
+    <div>
+        <label asp-for="Date"></label>
+        <input type="datetime-local" asp-for="Date">
+    </div>
+    <input type="submit"/>
+</form>

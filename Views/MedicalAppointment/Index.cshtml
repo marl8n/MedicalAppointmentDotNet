@@ -1,0 +1,46 @@
+@model List<MedicalAppointment>
+
+@{
+    ViewData["Title"] = "Doctor!";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome doctor!</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<table>
+        <thead class="table table-dark table-hover">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">DoctorId</th>
+            <th scope="col">DoctorName</th>
+            <th scope="col">PatientId</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var medicalAppointment in @Model)
+        {
+            <tr>
+                <td>@medicalAppointment.UniqueId</td>
+                <td>@medicalAppointment.DoctorId</td>
+                @if(medicalAppointment.Doctor != null)
+                {
+                    <td>@medicalAppointment.Doctor.FirstName @medicalAppointment.Doctor.LastName</td>
+                } else
+                {
+                    <td>#</td>
+                }
+                <td>@medicalAppointment.PatientId</td>
+                @if(medicalAppointment.Patient != null)
+                {
+                    <td>@medicalAppointment.Patient.FirstName @medicalAppointment.Patient.LastName</td>
+                } else
+                {
+                    <td>#</td>
+                }
+                <td>@medicalAppointment.PatientId</td>
+            </tr>
+        }
+        </tbody>
+</table>
