@@ -14,8 +14,9 @@ namespace MedicalAppointmentDotNet.Models
         {
             
         }
-        public MedicalAppointment(string DoctorId, string PatientId) : base(true)
+        public MedicalAppointment(DateTime Date, string DoctorId, string PatientId) : base(true)
         {
+            this.Date = Date;
             this.DoctorId = DoctorId;
             this.PatientId = PatientId;
             this.Doctor = AppointmentUtils.JoinDoctor(DoctorId);
