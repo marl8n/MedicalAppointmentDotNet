@@ -7,7 +7,7 @@ namespace MedicalAppointmentDotNet.Persistance
 {
     public class DoctorPersistance
     {
-        static List<Doctor> Load(string FileName = "Doctors.json")
+        public static List<Doctor> Load(string FileName = "Doctors.json")
         {
             if (File.Exists(FileName))
             {
@@ -24,7 +24,7 @@ namespace MedicalAppointmentDotNet.Persistance
             return new List<Doctor>();
         }
 
-        static void Save(List<Doctor> doctors, string FileName = "Doctors.json")
+        public static void Save(List<Doctor> doctors, string FileName = "Doctors.json")
         {
             using(var sw = new StreamWriter(FileName))
             {

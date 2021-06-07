@@ -3,23 +3,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using MedicalAppointmentDotNet.Models;
+using MedicalAppointmentDotNet.Persistance;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedicalAppointmentDotNet.Controllers
 {
     public class DoctorController : Controller
     {
-        //List = SearchDoctors()
-        static List<Doctor> doctors = new List<Doctor>{
-            new Doctor("Julion", "Alvarez", "Av. siempre viva, zona 2, 0-91", "12345678", DateTime.Now, Specialties.Neurology),
-            new Doctor("Marlon", "Zorrentino", "Av. siempre viva, zona 2, 0-91", "12345678", DateTime.Now, Specialties.Neurology),
-            new Doctor("Ivan", "Perez", "Av. siempre viva, zona 2, 0-91", "12345678", DateTime.Now, Specialties.Neurology),
-            new Doctor("Juan", "Juarez", "Av. siempre viva, zona 2, 0-91", "12345678", DateTime.Now, Specialties.Neurology),
-            new Doctor("Neíl", "Florentino", "Av. siempre viva, zona 2, 0-91", "12345678", DateTime.Now, Specialties.Neurology),
-        };
         
         public IActionResult Index()
         {
+            List<Doctor> doctors = DoctorPersistance.Load();
             return View(doctors);
         }
         public IActionResult CreateDoctor() 
@@ -29,6 +23,7 @@ namespace MedicalAppointmentDotNet.Controllers
         [HttpPost]
         public IActionResult CreateDoctor(Doctor doctor) 
         {
+            List<Doctor> doctors = DoctorPersistance.Load();
             doctors.Add(
                 new Doctor(
                     doctor.FirstName,
@@ -39,6 +34,7 @@ namespace MedicalAppointmentDotNet.Controllers
                     doctor.Specialty
                 )
             );
+            DoctorPersistance.Save(doctors);
             return Redirect("Index");
         }
     }
