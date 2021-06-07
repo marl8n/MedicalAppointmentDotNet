@@ -1,4 +1,4 @@
-@model List<Employee>
+@model List<Patient>
 
 @{
     ViewData["Title"] = "Doctor!";
@@ -19,13 +19,13 @@
         </tr>
         </thead>
         <tbody>
-        @foreach (var employee in @Model)
+        @foreach (var patient in @Model)
         {
             <tr>
-                <td>@employee.UniqueId</td>
-                <td>@employee.FirstName</td>
-                <td>@employee.LastName</td>
-                <td>@employee.Address</td>
+                <td>@patient.UniqueId</td>
+                <td>@patient.FirstName</td>
+                <td>@patient.LastName</td>
+                <td>@patient.Address</td>
             </tr>
         }
         </tbody>

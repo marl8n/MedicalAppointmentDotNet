@@ -1,0 +1,38 @@
+@model Employee
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div asp-validation-summary="All"></div>
+<form method="POST">
+    <div>
+        <label asp-for="FirstName"></label>    
+        <input  asp-for="FirstName"/>
+    </div>
+        <div>
+        <label asp-for="LastName"></label>
+        <input  asp-for="LastName"/>
+    </div>
+    </div>
+        <div>
+        <label asp-for="Address"></label>
+        <input  asp-for="Address"/>
+    </div>
+    </div>
+        <div>
+        <label asp-for="Birthdate"></label>
+        <input type="date" asp-for="Birthdate"/>
+    </div>
+    </div>
+        <div>
+        <label asp-for="PhoneNumber"></label>
+        <input type="tel" asp-for="PhoneNumber"/>
+    </div>
+    <input type="submit"/>
+</form>
