@@ -39,7 +39,7 @@ namespace MedicalAppointmentDotNet.Controllers
                     doctor.Specialty
                 )
             );
-            return View();
+            return Redirect("Index");
         }
     }
 }
