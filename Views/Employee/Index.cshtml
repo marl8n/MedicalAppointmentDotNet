@@ -1,0 +1,32 @@
+@model List<Employee>
+
+@{
+    ViewData["Title"] = "Doctor!";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome doctor!</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<table>
+        <thead class="table table-dark table-hover">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var doctor in @Model)
+        {
+            <tr>
+                <td>@doctor.UniqueId</td>
+                <td>@doctor.FirstName</td>
+                <td>@doctor.LastName</td>
+                <td>@doctor.Address</td>
+            </tr>
+        }
+        </tbody>
+</table>

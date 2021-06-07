@@ -2,13 +2,13 @@ using System;
 
 namespace MedicalAppointmentDotNet.Models
 {
-    public class Employee : BaseUser
+    public class Patient : BaseUser
     {
-        public Employee()
+        public Patient()
         {
             
         }
-        public Employee(
+        public Patient(
             string FirstName,
             string LastName,
             string Address,

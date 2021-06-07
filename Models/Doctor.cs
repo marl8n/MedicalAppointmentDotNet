@@ -15,7 +15,7 @@ namespace MedicalAppointmentDotNet.Models
             string Address,
             string PhoneNumber,
             DateTime Birthdate,
-            Specialties specialty
+            Specialties Specialty
         ):base(
             FirstName,
             LastName,
