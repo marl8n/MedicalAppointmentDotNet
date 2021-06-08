@@ -13,7 +13,7 @@ namespace MedicalAppointmentDotNet.Controllers
         
         public IActionResult Index()
         {
-            List<Doctor> doctors = DoctorPersistance.Load();
+            List<Doctor> doctors = w.Load();
             return View(doctors);
         }
         public IActionResult CreateDoctor() 
