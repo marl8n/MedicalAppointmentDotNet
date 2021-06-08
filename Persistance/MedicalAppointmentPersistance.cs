@@ -11,7 +11,7 @@ namespace MedicalAppointmentDotNet.Persistance
         {
             if (File.Exists(FileName))
             {
-                using(var sr = new StringReader(FileName))
+                using(var sr = new StreamReader(FileName))
                 {
                     var medicalAppointments = JsonConvert.DeserializeObject<List<MedicalAppointment>>(sr.ReadToEnd());
                     if ( medicalAppointments != null )

@@ -19,8 +19,8 @@ namespace MedicalAppointmentDotNet.Models
             this.Date = Date;
             this.DoctorId = DoctorId;
             this.PatientId = PatientId;
-            this.Doctor = AppointmentUtils.JoinDoctor(DoctorId);
-            this.Patient = AppointmentUtils.JoinPatient(PatientId);
+            this.Doctor = AppointmentUtils.JoinDoctor(DoctorId.Trim());
+            this.Patient = AppointmentUtils.JoinPatient(PatientId.Trim());
         }
     }
 }

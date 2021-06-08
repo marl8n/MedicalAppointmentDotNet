@@ -1,4 +1,5 @@
 using MedicalAppointmentDotNet.Models;
+using MedicalAppointmentDotNet.Persistance;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedicalAppointmentDotNet.Controllers
@@ -7,7 +8,8 @@ namespace MedicalAppointmentDotNet.Controllers
     {
         public IActionResult Index() 
         {
-            return View();
+            var medicalAppointments = MedicalAppointmentPersistance.Load();
+            return View(medicalAppointments);
         }
         public IActionResult CreateMedicalAppointment()
         {
@@ -16,6 +18,15 @@ namespace MedicalAppointmentDotNet.Controllers
         [HttpPost]
         public IActionResult CreateMedicalAppointment(MedicalAppointment medicalAppointment)
         {
+            var medicalAppointments = MedicalAppointmentPersistance.Load();
+            medicalAppointments.Add(
+                new MedicalAppointment(
+                    medicalAppointment.Date,
+                    medicalAppointment.DoctorId,
+                    medicalAppointment.PatientId
+                )
+            );
+            MedicalAppointmentPersistance.Save(medicalAppointments);
             return Redirect("Index");
         }
     }
